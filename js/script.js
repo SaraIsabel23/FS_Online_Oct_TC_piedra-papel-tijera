@@ -1,0 +1,52 @@
+/*1. En el archivo JavaScript, agrega eventos de clic que permitan al usuario elegir su jugada y comparen el resultado.
+2. Genera una jugada aleatoria para el ordenador.--ok
+3. Compara la elección del usuario con la elección del ordenador y muestra el resultado en el área de resultados.OK
+4. Actualiza el contador de puntos para el usuario y el ordenador según el resultado.
+5. Muestra el resultado en el HTML utilizando `textContent` o `innerHTML`en el div `resultados`
+*/
+const areaResultados = document.getElementById("resultados");
+const puntosUsuario = document.getElementById("contador-usuario");
+const puntosPc = document.getElementById("contador-ordenador");
+const botones = document.querySelectorAll(".boton-jugada");
+const opciones = ["piedra", "papel", "tijera"];
+function jugadaPc() {
+        let jugadaOrdenador = Math.floor(Math.random() * opciones.length);
+        let resultado = opciones[jugadaOrdenador];
+        return resultado;
+        }
+function comparar(jugadaUsuario, juegoPc) {
+    if (jugadaUsuario === juegoPc) {
+        return "Empate. Juega de nuevo";
+    } else if (
+        (jugadaUsuario === "piedra" && juegoPc === "tijera") ||
+        (jugadaUsuario === "tijera" && juegoPc === "papel") ||
+        (jugadaUsuario === "papel" && juegoPc === "piedra")
+    ) {
+        return "Gana Usted";
+    } else {
+        return "Pierde.";
+       }
+    }
+let sumaPc = 0;
+let sumaJugador = 0;
+function sumaPuntos(resultado) {
+    if (resultado === "Empate. Juega de nuevo") {
+        return;
+    } else if (resultado === "Gana Usted") {
+        sumaJugador += 1;
+    } else {
+        sumaPc += 1;
+    }
+}
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        let jugadaUsuario = boton.dataset.jugada;
+        let juegoPc = jugadaPc();
+        let resultado = comparar(jugadaUsuario, juegoPc);
+        sumaPuntos(resultado);
+        areaResultados.innerHTML = `Tu jugada: <strong>${jugadaUsuario}</strong> <br> Jugada de la máquina: <strong>${juegoPc}</strong> <br> Resultado: <strong>${resultado}</strong>`;
+        puntosUsuario.textContent = `Tus puntos: ${sumaJugador}`;
+        puntosPc.textContent = `Puntos de la máguina: ${sumaPc}`;
+        console.log("Usuario:", jugadaUsuario, "| PC:", juegoPc, "| Resultado:", resultado);
+    })
+})
