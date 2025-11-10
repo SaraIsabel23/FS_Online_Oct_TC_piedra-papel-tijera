@@ -14,3 +14,25 @@ body {
   font-size: 20px;
   margin: 20px 0;
 }
+
+.boton-jugada{
+  border-radius: 10px;
+  padding:20px 30px;
+
+}
+.boton-jugada:hover{
+  background-color: lightgreen;
+  transform: scale(1.1);
+}
+#resultados{
+  background-color: lightcoral;
+  align-items: center;
+  width: 300px;
+  height: 100px;
+  border-radius: 15px;
+  margin: 10px 485px 10px;
+
+}
+#contador-usuario,#contador-ordenador{
+  font-weight: bold;
+}

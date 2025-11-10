@@ -1,9 +1,4 @@
-/*1. En el archivo JavaScript, agrega eventos de clic que permitan al usuario elegir su jugada y comparen el resultado.
-2. Genera una jugada aleatoria para el ordenador.--ok
-3. Compara la elección del usuario con la elección del ordenador y muestra el resultado en el área de resultados.OK
-4. Actualiza el contador de puntos para el usuario y el ordenador según el resultado.
-5. Muestra el resultado en el HTML utilizando `textContent` o `innerHTML`en el div `resultados`
-*/
+
 const areaResultados = document.getElementById("resultados");
 const puntosUsuario = document.getElementById("contador-usuario");
 const puntosPc = document.getElementById("contador-ordenador");
