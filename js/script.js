@@ -38,10 +38,22 @@ botones.forEach(boton => {
         let jugadaUsuario = boton.dataset.jugada;
         let juegoPc = jugadaPc();
         let resultado = comparar(jugadaUsuario, juegoPc);
+        let emoticonoUsuario = emoji(jugadaUsuario);
+        let emoticonoPc = emoji(juegoPc);
         sumaPuntos(resultado);
-        areaResultados.innerHTML = `Tu jugada: <strong>${jugadaUsuario}</strong> <br> Jugada de la máquina: <strong>${juegoPc}</strong> <br> Resultado: <strong>${resultado}</strong>`;
+        areaResultados.innerHTML = `Tu jugada: ${jugadaUsuario}<span>${emoticonoUsuario}</span> <br> Jugada de la máquina: ${juegoPc}<span>${emoticonoPc}</span> <br> Resultado: ${resultado}`;
         puntosUsuario.textContent = `Tus puntos: ${sumaJugador}`;
-        puntosPc.textContent = `Puntos de la máguina: ${sumaPc}`;
+        puntosPc.textContent = `Puntos de la máquina: ${sumaPc}`;
         console.log("Usuario:", jugadaUsuario, "| PC:", juegoPc, "| Resultado:", resultado);
     })
 })
+function emoji(jugada) {
+    if (jugada === "piedra") {
+        return "✊";
+    } else if (jugada === "papel") {
+        return "✋";
+    } else {
+        return "✌️";
+    }
+}
+

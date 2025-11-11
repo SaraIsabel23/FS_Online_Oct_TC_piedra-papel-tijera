@@ -1,38 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+:root {
+  --buttonColor: #3498DB;
+  --buttonColorHover: lightgreen;
+  --resultadoColor: lightcoral;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f4f4f4;
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*MIS CSS*/
+body {
+  font-family: "Momo Signature", cursive;
+  text-align:center;
+  background-color: #F4F4F4;
+  margin: 50px;
 }
 .boton-jugada {
-  background-color: #3498db;
+  font-family: "Momo Signature", cursive;
+  background-color: var(--buttonColor);
   color: #fff;
-  padding: 10px 20px;
+  margin: 20px 10px;
+  padding: 20px 30px;
   font-size: 16px;
   cursor: pointer;
-}
-#resultados {
-  font-size: 20px;
-  margin: 20px 0;
-}
-
-.boton-jugada{
   border-radius: 10px;
-  padding:20px 30px;
-
 }
 .boton-jugada:hover{
-  background-color: lightgreen;
+  background-color: var(--buttonColorHover);
   transform: scale(1.1);
 }
 #resultados{
-  background-color: lightcoral;
-  align-items: center;
-  width: 300px;
-  height: 100px;
+  line-height: 2;
+  font-size: 17px;
+  background-color: var(--resultadoColor);
+  max-width: 460px;
+  width: 90%;
+  height: 165px;
+  border: 5px solid var(--buttonColor);
   border-radius: 15px;
-  margin: 10px 485px 10px;
-
+  padding-top: 50px;
+  margin: 20px auto;
+  animation: box 1.5s ease;
+}
+@keyframes box {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 #contador-usuario,#contador-ordenador{
-  font-weight: bold;
+ font-weight: bold;
+ padding-bottom: 15px;
 }
